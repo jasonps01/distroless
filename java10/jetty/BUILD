@@ -4,7 +4,7 @@ load("@io_bazel_rules_docker//docker:docker.bzl", "docker_build")
 
 [docker_build(
     name = "jetty" if (mode == ":java10") else mode[1:],
-    base = "//java" + mode,
+    base = "//java10" + mode,
     cmd = ["/jetty/start.jar"],
     ports = ["8080"],
     tars = ["@jetty//:tar"],

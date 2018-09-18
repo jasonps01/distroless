@@ -18,6 +18,10 @@ docker_bundle(
         "gcr.io/{PROJECT_ID}/java:debug": "//java:debug",
         "gcr.io/{PROJECT_ID}/java/jetty:latest": "//java/jetty",
         "gcr.io/{PROJECT_ID}/java/jetty:debug": "//java/jetty:debug",
+        "gcr.io/{PROJECT_ID}/java10:latest": "//java10:java10",
+        "gcr.io/{PROJECT_ID}/java10:debug": "//java10:debug",
+        "gcr.io/{PROJECT_ID}/java10/jetty:latest": "//java10/jetty",
+        "gcr.io/{PROJECT_ID}/java10/jetty:debug": "//java10/jetty:debug",
         "gcr.io/{PROJECT_ID}/python3:latest": "//experimental/python3:python3",
         "gcr.io/{PROJECT_ID}/python3:debug": "//experimental/python3:debug",
         "gcr.io/{PROJECT_ID}/python2.7:latest": "//experimental/python2.7:python27",
@@ -30,9 +34,27 @@ docker_bundle(
     stamp = True,
 )
 
+docker_bundle(
+    name = "bundle_java10",
+    images = {
+        "gcr.io/{PROJECT_ID}/base:latest": "//base",
+        "gcr.io/{PROJECT_ID}/base:debug": "//base:debug",
+        "gcr.io/{PROJECT_ID}/java10:latest": "//java10:java10",
+        "gcr.io/{PROJECT_ID}/java10:debug": "//java10:debug",
+        "gcr.io/{PROJECT_ID}/java10/jetty:latest": "//java10/jetty",
+        "gcr.io/{PROJECT_ID}/java10/jetty:debug": "//java10/jetty:debug",
+    },
+    stamp = True,
+)
+
 load("@io_bazel_rules_docker//contrib:push-all.bzl", "docker_push")
 
 docker_push(
     name = "publish",
     bundle = ":all",
+)
+
+docker_push(
+    name = "publish_java10",
+    bundle = ":bundle_java10",
 )
