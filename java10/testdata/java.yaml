@@ -1,0 +1,9 @@
+schemaVersion: "1.0.0"
+commandTests:
+  - name: java
+    command: ["/usr/lib/jvm/java-10-openjdk-amd64/bin/java", "-version"]
+    expectedError: ['openjdk version "10\.0.*"']
+fileExistenceTests:
+  - name: certs
+    path: "/etc/ssl/certs/java/cacerts"
+    shouldExist: true

@@ -46,6 +46,15 @@ dpkg_src(
     sha256 = "f9778cfe4746eba25ea86d4fe7fa75af82fe69b6670b609cbfae1f6f907145be",
 )
 
+dpkg_src(
+    name = "debian_buster",
+    arch = "amd64",
+    distro = "buster",
+    sha256 = "005b1fe8f6493d47934042a6056703a104a00554ee85cc5336a93adec4eca0fe",
+    snapshot = "20180918T155619Z",
+    url = "http://snapshot.debian.org/archive",
+)
+
 dpkg_list(
     name = "package_bundle",
     packages = [
@@ -78,6 +87,7 @@ dpkg_list(
         #java
         "zlib1g",
         "openjdk-8-jre-headless",
+        "openjdk-10-jre-headless",
 
         #python
         "libpython2.7-minimal",
@@ -141,6 +151,7 @@ dpkg_list(
         "@debian_stretch_security//file:Packages.json",
         "@debian_stretch_backports//file:Packages.json",
         "@debian_stretch//file:Packages.json",
+        "@debian_buster//file:Packages.json",
     ],
 )
 
