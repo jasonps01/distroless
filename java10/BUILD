@@ -23,7 +23,7 @@ cacerts_java(
         # cmd = ["/path/to/deploy.jar", "--option1", ...]
     ],
     symlinks = {
-        "/usr/bin/java": "/usr/lib/jvm/java-10-openjdk-amd64/jre/bin/java",
+        "/usr/bin/java": "/usr/lib/jvm/java-10-openjdk-amd64/bin/java",
     },
     tars = [":cacerts_java"],
 ) for mode in [

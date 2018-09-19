@@ -50,8 +50,8 @@ dpkg_src(
     name = "debian_buster",
     arch = "amd64",
     distro = "buster",
-    sha256 = "005b1fe8f6493d47934042a6056703a104a00554ee85cc5336a93adec4eca0fe",
-    snapshot = "20180918T155619Z",
+    sha256 = "0d5bf32ede4fa7c20a8149c7dfe57a8ee03c2abfc3a90a8bb6a5479ee047d404",
+    snapshot = "20180919T095426Z",
     url = "http://snapshot.debian.org/archive",
 )
 
